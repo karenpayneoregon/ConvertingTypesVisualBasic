@@ -36,18 +36,19 @@
         <Runtime.CompilerServices.Extension>
         Public Function ToIntegerArray(sender() As String) As Integer()
             Return Array.ConvertAll(sender,
-                                    Function(input)
-                                        Dim value As Integer
-                                        Return New With
-                                       {
-                                           .IsInteger = Integer.TryParse(input, value),
-                                           .Value = value
-                                       }
-                                    End Function).
+                Function(input)
+                    Dim value As Integer
+                    Return New With
+                   {
+                       .IsInteger = Integer.TryParse(input, value),
+                       .Value = value
+                   }
+                End Function).
                 Where(Function(result) result.IsInteger).
                 Select(Function(result) result.Value).
                 ToArray()
         End Function
+
         ''' <summary>
         ''' Given a string array assumed to be all integers return
         ''' all elements no matter if they can be converted. Non integer
@@ -71,6 +72,9 @@
         ''' </summary>
         ''' <param name="sender">String array</param>
         ''' <returns>If non integer elements found return their index in the string array</returns>
+        ''' <remarks>
+        ''' Indices are zero based
+        ''' </remarks>
         <Runtime.CompilerServices.Extension>
         Public Function GetNonIntegerIndexes(sender() As String) As Integer()
             Return sender.Select(

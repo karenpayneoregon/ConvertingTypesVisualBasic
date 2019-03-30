@@ -36,17 +36,17 @@
         <Runtime.CompilerServices.Extension>
         Public Function ToDecimalArray(sender() As String) As Decimal()
             Dim resultArray = Array.ConvertAll(sender,
-                                               Function(input)
-                                                   Dim value As Decimal
-                                                   Return New With
-                                                  {
-                                                  .IsDecimal = Decimal.TryParse(input, value),
-                                                  .Value = value
-                                                  }
-                                               End Function).
-                    Where(Function(result) result.IsDecimal).
-                    Select(Function(result) result.Value).
-                    ToArray()
+                   Function(input)
+                       Dim value As Decimal
+                       Return New With
+                      {
+                      .IsDecimal = Decimal.TryParse(input, value),
+                      .Value = value
+                      }
+                   End Function).
+                   Where(Function(result) result.IsDecimal).
+                   Select(Function(result) result.Value).
+                   ToArray()
 
             Return resultArray
 

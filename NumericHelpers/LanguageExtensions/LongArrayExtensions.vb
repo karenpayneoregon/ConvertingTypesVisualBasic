@@ -72,7 +72,7 @@
         ''' <param name="sender">String array</param>
         ''' <returns>If non integer elements found return their index in the string array</returns>
         <Runtime.CompilerServices.Extension>
-        Public Function GetNonIntegerIndexes(sender() As String) As Integer()
+        Public Function GetNonLongIndexes(sender() As String) As Integer()
             Return sender.Select(
                 Function(item, index)
 
