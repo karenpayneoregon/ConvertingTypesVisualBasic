@@ -81,5 +81,27 @@ Namespace LanguageExtensions
         Public Function StringToType(Of T As ICollection(Of TE), TE)(sender As String) As TE()
             Return sender.Split(","c).Select(Function(item) CType(System.Convert.ChangeType(item, GetType(TE)), TE)).ToArray()
         End Function
+        ''' <summary>
+        ''' Converts a string to a Nullable type as per T
+        ''' </summary>
+        ''' <typeparam name="T">Type to convert too</typeparam>
+        ''' <param name="sender">String to work from</param>
+        ''' <returns></returns>
+        <CompilerServices.Extension>
+        Public Function ToNullable(Of T As Structure)(sender As String) As T?
+
+            Dim result As New T?()
+
+            Try
+                If Not String.IsNullOrWhiteSpace(sender) Then
+                    Dim converter As TypeConverter = TypeDescriptor.GetConverter(GetType(T))
+                    result = CType(converter.ConvertFrom(sender), T)
+                End If
+            Catch
+
+            End Try
+
+            Return result
+        End Function
     End Module
 End Namespace
