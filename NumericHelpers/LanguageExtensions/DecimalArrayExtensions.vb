@@ -18,7 +18,7 @@
         ''' <param name="sender"></param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
-        Public Function DecimalArrayToStringArray(sender() As Integer) As String()
+        Public Function DecimalArrayToStringArray(sender() As Decimal) As String()
             Return Array.ConvertAll(sender,
                 Function(input)
                     Return input.ToString()

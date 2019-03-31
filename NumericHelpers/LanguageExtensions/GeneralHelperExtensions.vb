@@ -8,5 +8,11 @@
         Public Function DecimalArrayToString(sender() As Decimal) As String
             Return String.Join(",", sender)
         End Function
+        <Runtime.CompilerServices.Extension>
+        Public Function DoubleArrayToString(sender() As Double) As String
+            Return String.Join(",", sender)
+        End Function
+
     End Module
+
 End Namespace

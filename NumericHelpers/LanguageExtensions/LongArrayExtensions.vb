@@ -40,8 +40,8 @@
                                         Dim value As Long
                                         Return New With
                                        {
-                                       .IsLong = Long.TryParse(input, value),
-                                       .Value = value
+                                           .IsLong = Long.TryParse(input, value),
+                                           .Value = value
                                        }
                                     End Function).
                 Where(Function(result) result.IsLong).
@@ -80,13 +80,13 @@
                     Return If(Long.TryParse(item, integerValue),
                               New With
                                  {
-                                 .IsLong = True,
-                                 .Index = index
+                                     .IsLong = True,
+                                     .Index = index
                                  },
                               New With
                                  {
-                                 .IsLong = False,
-                                 .Index = index
+                                     .IsLong = False,
+                                     .Index = index
                                  }
                               )
                 End Function).

@@ -18,7 +18,7 @@
         ''' <param name="sender"></param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
-        Public Function DoubleArrayToStringArray(sender() As Integer) As String()
+        Public Function DoubleArrayToStringArray(sender() As Double) As String()
             Return Array.ConvertAll(sender,
                                     Function(input)
                                         Return input.ToString()
@@ -40,8 +40,8 @@
                                         Dim value As Double
                                         Return New With
                                        {
-                                       .IsDDouble = Double.TryParse(input, value),
-                                       .Value = value
+                                           .IsDDouble = Double.TryParse(input, value),
+                                           .Value = value
                                        }
                                     End Function).
                 Where(Function(result) result.IsDDouble).
@@ -53,10 +53,9 @@
         ''' </summary>
         ''' <param name="sender"></param>
         ''' <returns></returns>
-        Public Function ToDoubleArray(sender() As Double) As Decimal()
+        Public Function ToDecimalArray(sender() As Double) As Decimal()
             Return Array.ConvertAll(sender, Function(input) CDec(input))
         End Function
-
         ''' <summary>
         ''' Given a String array assumed to be all Doubles return
         ''' all elements no matter if they can be converted. Non Double
@@ -65,7 +64,7 @@
         ''' <param name="sender"></param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
-        Public Function ToDecimalPreserveArray(sender() As String) As Double()
+        Public Function ToDoublePreserveArray(sender() As String) As Double()
             Return Array.ConvertAll(sender,
                                     Function(input)
                                         Dim value As Double
@@ -88,13 +87,13 @@
                     Return If(Double.TryParse(item, integerValue),
                               New With
                                  {
-                                 .IsIDouble = True,
-                                 .Index = index
+                                     .IsIDouble = True,
+                                     .Index = index
                                  },
                               New With
                                  {
-                                 .IsIDouble = False,
-                                 .Index = index
+                                     .IsIDouble = False,
+                                     .Index = index
                                  }
                               )
                 End Function).

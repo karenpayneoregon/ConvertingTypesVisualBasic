@@ -54,7 +54,7 @@ Imports NumericHelpers.LanguageExtensions
                         $"Expected only {expectedCount} elements could be converted")
 
         ' check if values are as expected
-        Assert.IsTrue(integergArrayValidator.SequenceEqual(results))
+        Assert.IsTrue(integerArrayValidator.SequenceEqual(results))
     End Sub
     ''' <summary>
     ''' Given a string array with non-integer values, test obtaining
