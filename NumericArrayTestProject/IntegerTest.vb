@@ -3,7 +3,26 @@ Imports NumericHelpers.LanguageExtensions
 
 <TestClass()> Public Class IntegerTest
     Inherits TestBase
+    ''' <summary>
+    ''' Given a string array where some elements can be converted to 
+    ''' Nullable Integer and some elements which can not be converted
+    ''' validate the extension method ToNullable
+    ''' </summary>
+    <TestMethod>
+    Public Sub StringToNullableInteger_Successful()
 
+        Dim expected() As Integer? = {2, 6, -1}
+
+        Dim nullableResults =
+        (
+            From item In StringArrayMixedTypesIntegers
+            Select value = item.ToNullable(Of Integer)
+            Where value.HasValue
+        ).ToList()
+
+        Assert.IsTrue(nullableResults.SequenceEqual(expected))
+
+    End Sub
     ''' <summary>
     ''' Attempt to parse a string which can not be converted to an Integer.
     ''' No assertion requires pass ExpectedException attributive.
