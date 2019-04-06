@@ -18,7 +18,7 @@
         ''' <param name="sender"></param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
-        Public Function LongrArrayToStringArray(sender() As Long) As String()
+        Public Function LongArrayToStringArray(sender() As Long) As String()
             Return Array.ConvertAll(sender,
                                     Function(input)
                                         Return input.ToString()

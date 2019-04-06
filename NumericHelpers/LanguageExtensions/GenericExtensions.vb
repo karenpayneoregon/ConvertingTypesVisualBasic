@@ -48,8 +48,8 @@ Namespace LanguageExtensions
             End If
 
             Dim array() As String = source.Cast(Of Object)().
-                    Where(Function(n) n IsNot Nothing).
-                    Select(Function(n) n.ToString()).
+                    Where(Function(item) item IsNot Nothing).
+                    Select(Function(item) item.ToString()).
                     ToArray()
 
             Return String.Join(separator, array)
@@ -87,14 +87,14 @@ Namespace LanguageExtensions
             Return False
 
         End Function
-
         <CompilerServices.Extension>
         Public Function StringToType(Of T)(sender As String) As T
             Return CType(System.Convert.ChangeType(sender, GetType(T)), T)
         End Function
         <Runtime.CompilerServices.Extension>
         Public Function StringToType(Of T As ICollection(Of TE), TE)(sender As String) As TE()
-            Return sender.Split(","c).Select(Function(item) CType(System.Convert.ChangeType(item, GetType(TE)), TE)).ToArray()
+            Return sender.Split(","c).Select(
+                Function(item) CType(System.Convert.ChangeType(item, GetType(TE)), TE)).ToArray()
         End Function
         ''' <summary>
         ''' Converts a string to a Nullable type as per T

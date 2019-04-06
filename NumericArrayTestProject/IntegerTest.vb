@@ -21,7 +21,6 @@ Imports NumericHelpers.LanguageExtensions
         ).ToList()
 
         Assert.IsTrue(nullableResults.SequenceEqual(expected))
-
     End Sub
     ''' <summary>
     ''' Attempt to parse a string which can not be converted to an Integer.

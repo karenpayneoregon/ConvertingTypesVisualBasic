@@ -48,7 +48,6 @@
                 Select(Function(result) result.Value).
                 ToArray()
         End Function
-
         ''' <summary>
         ''' Given a string array assumed to be all integers return
         ''' all elements no matter if they can be converted. Non integer
