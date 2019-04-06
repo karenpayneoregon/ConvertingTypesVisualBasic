@@ -1,4 +1,6 @@
-﻿''' <summary>
+﻿Imports NumericHelpers.LanguageExtensions
+
+''' <summary>
 ''' This is for showing how to work with casting, parsing and converting
 ''' numbers. More code samples will be added over time.
 ''' </summary>
@@ -61,5 +63,77 @@ Public Class Form1
         Else
             MessageBox.Show("Please enter a value")
         End If
+    End Sub
+
+    Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
+        Dim test = "1.4"
+        Dim resultDecimal = test.StringToType(Of Decimal)
+        'Dim resultInteger = test.StringToType(Of Integer)
+        Dim resultInteger = 0
+        If test.GenericTryParse(Of Integer)(resultInteger) Then
+            Console.WriteLine()
+        Else
+            Console.WriteLine()
+        End If
+        Console.WriteLine()
+    End Sub
+    ''' <summary>
+    ''' Given a valid decimal stored in a string use a generic language extension
+    ''' method to convert to a decimal. This extension method will work against 
+    ''' other numeric but if the type can't be converted a runtime exception is thrown.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub genericConvertStringToDecimalButton_Click(sender As Object, e As EventArgs) _
+        Handles genericConvertStringToDecimalButton.Click
+
+        Dim resultDecimal As Decimal = genericConvertStringToDecimalTextBox.Text.StringToType(Of Decimal)
+        MessageBox.Show($"Value: {resultDecimal.ToString("C2")}")
+
+        genericConvertStringToDecimalTextBox.Text = "1..56"
+
+        MessageBox.Show("Let's use 1.56 to throw an exception")
+        Try
+            resultDecimal = genericConvertStringToDecimalTextBox.Text.StringToType(Of Decimal)
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
+        MessageBox.Show("Using a different extension method similar to the native TryParse extension")
+
+        resultDecimal = 0
+
+        If genericConvertStringToDecimalTextBox.Text.GenericTryParse(Of Decimal)(resultDecimal) Then
+            MessageBox.Show("Never going to happen")
+        Else
+            MessageBox.Show("1..56 is not a valid decimal")
+        End If
+
+    End Sub
+
+    Private Sub ToNullableFailGracefullyButton_Click(sender As Object, e As EventArgs) Handles ToNullableFailGracefullyButton.Click
+        '
+        ' First attempt will fail as the current value is "One"
+        ' 
+        Dim nullableIntegerValue As Integer? = ToNullableFailGracefullyTextBox.Text.ToNullable(Of Integer)
+        If nullableIntegerValue.HasValue Then
+            Dim integerValue = nullableIntegerValue.Value
+            MessageBox.Show($"Converted successfully")
+        Else
+            MessageBox.Show($"{ToNullableFailGracefullyTextBox.Text} could not be converted")
+        End If
+
+        '
+        ' This attempt will succeed as 12 is a valid Integer
+        '
+        ToNullableFailGracefullyTextBox.Text = "12"
+        nullableIntegerValue = ToNullableFailGracefullyTextBox.Text.ToNullable(Of Integer)
+        If nullableIntegerValue.HasValue Then
+            Dim integerValue = nullableIntegerValue.Value
+            MessageBox.Show($"Converted successfully")
+        Else
+            MessageBox.Show($"{ToNullableFailGracefullyTextBox.Text} could not be converted")
+        End If
+
     End Sub
 End Class
