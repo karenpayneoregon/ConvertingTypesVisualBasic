@@ -1,0 +1,60 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ParsingAndConvertingWPF"
+        mc:Ignorable="d"
+        Title="Working with assertion on numbers" Height="259" Width="408"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TextBox x:Name="assertIntegerTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="45,48,0,0" 
+                 TextWrapping="Wrap"  
+                 PreviewTextInput="AssertIntegerTextBox_OnPreviewTextInput"
+                 Text="0" 
+                 VerticalAlignment="Top" Width="120"/>
+
+        <Button x:Name="integerOnlyTextBox" 
+                Content="Assert through preview" 
+                HorizontalAlignment="Left" 
+                Margin="190,49,0,0" 
+                VerticalAlignment="Top" 
+                Width="163" 
+                Click="IntegerOnlyTextBox_OnClick"/>
+
+        <TextBox x:Name="doesNoAssertionForValueAsIntegerTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="45,105,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="Trouble" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+
+        <Button x:Name="noAssertionToCheckIfIntegerButton" 
+                Content="Improper" 
+                HorizontalAlignment="Left" 
+                Margin="190,105,0,0" 
+                VerticalAlignment="Top" 
+                Width="163" Click="NoAssertionToCheckIfIntegerButton_OnClick" />
+
+        <Label Content="Integer only" HorizontalAlignment="Left" Margin="45,22,0,0" VerticalAlignment="Top"/>
+        <Label Content="What happens without assertions" HorizontalAlignment="Left" Margin="45,81,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="tryparseIntegerTextBox" 
+                 HorizontalAlignment="Left" 
+                 Height="23" 
+                 Margin="45,173,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="1.22" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+
+        <Label Content="Assertion Integer example" HorizontalAlignment="Left" Margin="45,145,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="tryParseAssertionButton" 
+                Content="TryParse" 
+                HorizontalAlignment="Left" Margin="190,174,0,0" VerticalAlignment="Top" Width="163"/>
+
+    </Grid>
+</Window>
