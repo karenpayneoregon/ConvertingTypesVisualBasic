@@ -30,6 +30,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{F41DBCC3-8E5
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ParsingAndConvertingWPF", "ParsingAndConvertingWPF\ParsingAndConvertingWPF.vbproj", "{875589CA-722C-4B37-95AF-482BC4929293}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AssertionOnStringsWindowsForms", "AssertionOnStringsWindowsForms\AssertionOnStringsWindowsForms.vbproj", "{631FC441-2E94-4CCE-95DA-A411F0A46009}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{875589CA-722C-4B37-95AF-482BC4929293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{875589CA-722C-4B37-95AF-482BC4929293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{875589CA-722C-4B37-95AF-482BC4929293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{3C54A61A-C4CA-4656-AE54-7C31C74680A0} = {710B979F-410F-4FDD-8BEC-C0A66EB6D669}
 		{E7620B49-75F3-44F6-80D1-9C17949ADC27} = {560158DA-C939-4137-ACCB-1E004B66F352}
 		{875589CA-722C-4B37-95AF-482BC4929293} = {F41DBCC3-8E57-42F4-B4F3-A51407DE2397}
+		{631FC441-2E94-4CCE-95DA-A411F0A46009} = {560158DA-C939-4137-ACCB-1E004B66F352}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCE875DE-3693-4C88-AC1E-AFCFFF19957E}

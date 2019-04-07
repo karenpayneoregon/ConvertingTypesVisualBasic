@@ -1,98 +1,141 @@
-# How To: Type conversions in VB.NET
-Developers will always have a need to convert from one type to another type such as String to Date, String to Integer/Double/Decimal along with converting collections from one type to another.
+# VB.NET Data conversions
+## Table of Contents
+1. [Overview](#Overview)
+2. [Conventions](#ConventionsOverview)
+2. [Asserting data](#Asserting1)
+   1. [Strings](#Strings1)
+   2. [Strings to numerics](#StringsNumerics)
+3. [Language Extensions](#LanguageExtensions1)
 
-**Note** This repository should be seen as an evolving code repository.
-
-
-
-
----
 
 ## Overview
-There are solutions in this repository to common conversions broken down into [class projects](https://docs.microsoft.com/en-us/visualstudio/get-started/tutorial-projects-solutions?view=vs-2017) which by adding to a Visual Studio solution allow developers to have these solutions available without the need to remember how to do this or that conversion.
+Developers work with various types of data ranging from displaying information collected from user inputting which is then stored in a container, reading information from various sources such as web services, native files to databases. One thing is common, at one point the data is represented as an object and usually a string. In this article developers will learn how to work with raw data to convert to a type suitable for tasks in Visual Studio solutions using defensive programming which means in most task data read or written may not be in the expected format to be stored in designated containers like databases, json, xml or another format.
 
-> These conversions are not limited to [ASP.NET](https://dotnet.microsoft.com/apps/aspnet), [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/) or [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/).
+Information and code samples are geared towards both novice and intermediate skill level which are demonstrated in unit test, Windows Forms and WPF projects. In some cases, there will be class projects which can be used in a Visual Studio solution by copying one of the class projects into an existing Visual Studio solution followed by (if needed) changing the .NET Framework version in the class project to match the .NET Framework used in an existing Visual Studio solution. The base .NET Framework used in code in this article is 4.7.2. If a Framework below 3.5 is used code presented may not work, for example String. IsNullOrWhiteSpace was first introduced in Framework 3.5.
 
-For novice developers, there will be conversions such as the example below that work for intended needs but not easy to understand. This should not cause avoidance, think of these no different than methods found in the .NET Framework, you don't have the source code which in many cases is more complex than the example below yet still use them. The complex methods should be seen the same way.
+Language extension methods are utilizing in many operations which in some cases utilize LINQ or Lambda, when reviewing these methods do not to hung up on the complexity, instead if the method(s) work simply use them. 
 
-###### code sample description
+> The code presented should not be considered that they belong to one platform when presented in  [ASP.NET](https://dotnet.microsoft.com/apps/aspnet), [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/) or [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/). For example, exploring code in a WPF project may reveal a useful regular expression pattern or a unit test may lead to a method useful in a Windows Form project
 
-Given a String array which needs to be converted to an Integer array there may be times when not all elements in the String array can be converted. Using conventional methods can be cumbersome while this one is not, if one or more elements can not be converted the result is an array of the elements which were converted. What about "which elements which could not be converted", there is an extension method for this and also an extension method which provides the indexes to the elements which could not be converted.
+## Asserting data <a name="Asserting1"></a>
 
-```csharp
-<Runtime.CompilerServices.Extension>
-Public Function ToIntegerArray(sender() As String) As Integer()
-    Return Array.ConvertAll(sender,
-                            Function(input)
-                                Dim value As Integer
-                                Return New With
-                               {
-                                   .IsInteger = Integer.TryParse(input, value),
-                                   .Value = value
-                               }
-                            End Function).
-        Where(Function(result) result.IsInteger).
-        Select(Function(result) result.Value).
-        ToArray()
-End Function
-```
-There are examples showing usage of the following, which is right for the task at hand.
-```csharp
-Public Sub Demo(pValue As String)
-    Dim IntegerValue = 0
+TODO
 
-    If Integer.TryParse(pValue, IntegerValue) Then
-        '
-    Else
-        '
-    End If
+## Conventions <a name="ConventionsOverview"></a>
+All code presented uses the following directives, Option Strict On, Option Infer On. Using these directives assist with having quality code.
 
-    IntegerValue = System.Convert.ToInt32(pValue)
+All code presented uses the following directives, Option Strict On, Option Infer On. Using these directives assist with having quality code. 
 
-    IntegerValue = Integer.Parse(pValue)
-
-End Sub
-```
-
-
----
-## Limitations
-The majority of methods and language extensions depend 4x and higher .NET Framework. In some cases this can be resolved using methods and/or language extension methods to overcome this.
-
-For example, .NET Framework does not have String.IsNullOrWhiteSpace. This can overcomed by writing a wrapper function implemented as a language extension method as shown below.
+A common practice with novice developers to programming or have coded in perhaps JavaScript are not use to strong typing as shown in the code below.
 
 ```csharp
-Public Module StringExtensionMethods
-    <Runtime.CompilerServices.Extension>
-    Public Function IsNullOrWhiteSpace(value As String) As Boolean
-        Return (value Is Nothing) OrElse String.IsNullOrEmpty(value.Trim())
-    End Function
-End Module
+Option Strict Off
+Option Infer Off
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) _
+        Handles Button1.Click
+
+        Dim someInteger = CInt("Does not represent an Integer")
+
+    End Sub
+End Class
 ```
----
-#### Unit Test
 
----
+In the code above someInteger variable is an object, not a String which compile but will throw a runtime exception because there was no type checking.
 
-## Conversions
-#### String to Numeric
+In the following code sample Option Strict On will not compile as Visual Studio wants a type.
 
-#### String to Date
+```csharp
+Option Strict On
+Option Infer Off
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) _
+        Handles Button1.Click
 
-#### Data Readers
+        Dim someInteger = CInt("Does not represent an Integer")
 
-#### Entity Framework
+    End Sub
+End Class
+```
+Adding the type.
 
----
-### Requirements
+```csharp
+Option Strict On
+Option Infer Off
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) _
+        Handles Button1.Click
 
-- [Microsoft Visual Studio](http://example.com) targetting Framework 4x and higher
+        Dim someInteger As Integer = CInt("Does not represent an Integer")
 
----
+    End Sub
+End Class
+```
+Visual Studio will allow this code to compile even though the conversion will fail as "Does not represent an Integer" can not be represented as an Integer. 
+
+By setting Option Strict On provides a decent base for writing quality code. Later assertion will be taught to protect against runtime exceptions when a value can not be converted from one type to another type without any runtime exceptions.
+
+The following code example shows the basics for testing if a string can be converted to an Integer.
+
+```csharp
+Option Strict On
+Option Infer On
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) _
+        Handles Button1.Click
+
+        Dim userInput As String = "Does not represent an Integer"
+
+        If Not String.IsNullOrWhiteSpace(userInput) Then
+            Dim someInteger As Integer = 0
+            If Integer.TryParse(userInput, someInteger) Then
+                ' converted
+            Else
+                ' failed to convert
+            End If
+        Else
+            ' variable has no content
+        End If
+    End Sub
+End Class
+```
+
+**Naming variables and controls**
+
+Common practice for novice developers is to provide meaningless names for variable and controls which does not lend to easily reading code later on which leads to code which is difficult or impossible to maintain. Code presented in this article uses a simple convention, name variables and controls so that a non-developer can read your code and have an idea what variables and controls represent. For example for a input used to obtain a customer’s first name, firstNameTextBox rather than TextBox1.
+
+```csharp
+Public Class Form1
+    Private Sub Button1_Click(sender As Object, e As EventArgs) _
+        Handles Button1.Click
+
+        Dim firstName As String = firstNameTextBox.Text
+
+    End Sub
+End Class
+```
+Note in the last code example the button has a generic name, does not describe what the button is for. Naming controls and events are both important so here the button Click event has a meaningful name.
+```csharp
+Public Class Form1
+    Private Sub processCustomerInputButton_Click(sender As Object, e As EventArgs) _
+        Handles processCustomerInputButton.Click
+
+        Dim firstName As String = firstNameTextBox.Text
+        Dim lastName As String = lastNameTextBox.Text
+
+    End Sub
+End Class
+```
 
 
-## Compile recommendations
+### Strings <a name="Strings1"></a>
 
-All code presented in this repository have been done using [Option Strict On](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/option-strict-statement) and [Option Infer On](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/statements/option-infer-statement).
+TODO (link to a specific page)
 
-Best practice is to compile with Option Strict On while Option Infer On is a personal choice. Using Option Infer On provide syntax similar to C#.
+### Strings to numerics <a name="StringsNumerics"></a>
+
+TODO (link to a specific page)
+
+## Language Extensions <a name="LanguageExtensions1"></a>
+
+TODO (link to a specific page)
