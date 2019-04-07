@@ -2,6 +2,7 @@
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Conventions](#ConventionsOverview)
+    1. [Naming conventions](#namingConventions)
 2. [Asserting data](#Asserting1)
    1. [Strings](#Strings1)
    2. [Strings to numerics](#StringsNumerics)
@@ -100,7 +101,7 @@ Public Class Form1
 End Class
 ```
 
-**Naming variables and controls**
+**Naming variables and controls** <a name="namingConventions"></a>
 
 Common practice for novice developers is to provide meaningless names for variable and controls which does not lend to easily reading code later on which leads to code which is difficult or impossible to maintain. Code presented in this article uses a simple convention, name variables and controls so that a non-developer can read your code and have an idea what variables and controls represent. For example for a input used to obtain a customer’s first name, firstNameTextBox rather than TextBox1.
 
