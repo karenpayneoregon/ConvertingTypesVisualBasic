@@ -151,11 +151,10 @@ End Class
 
 ### Strings <a name="Strings1"></a>
 
-[Asserting](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/Pages/WorkingWithString.md).
+- [Asserting](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/Pages/WorkingWithString.md).
+- [Strings to numerics](./Pages/WorkingWithString.md)<a name="StringsNumerics"></a>
 
-### Strings to numerics <a name="StringsNumerics"></a>
 
-TODO (link to a specific page)
 
 ## Language Extensions <a name="LanguageExtensions1"></a>
 

@@ -1,6 +1,7 @@
 # String assertion
 
 - [Basics assertion](#stringBasics1)
+- [String to numerics](#stringToNumerics)
 
 [Back to main page](../readme.md)
 
@@ -91,6 +92,8 @@ Public Class Form1
 
 End Class
 ```
+---
+### String to numerics <a name="stringToNumerics"></a>
 
 Once a required string has been established to have content usually the value will be stored as a string or converted to another type. In the following WPF window there are three TextBox controls.
 
@@ -181,4 +184,4 @@ Private Sub AssertionOnInteger_KeyPressForOnlyIntegers(
 End Sub
 ```
 > Note there are other ways to perform assertion on string and converting to numbers using custom validator components and by implementing a component with [IExtenderProvider Interface](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.iextenderprovider?view=netframework-4.7.2).
-
+---
