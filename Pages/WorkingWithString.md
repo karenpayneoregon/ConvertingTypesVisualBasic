@@ -91,3 +91,94 @@ Public Class Form1
 
 End Class
 ```
+
+Once a required string has been established to have content usually the value will be stored as a string or converted to another type. In the following WPF window there are three TextBox controls.
+
+![Screen](../Images/WPF_StringToIntegerExamples.jpg)
+
+The first TextBox assertion is done by setting up an event for [PreviewTextInput](https://docs.microsoft.com/en-us/dotnet/api/system.windows.uielement.previewtextinput?view=netframework-4.7.2). In the code behind
+a Regular Expression is used to determine if the text entered can be represented as an Integer.
+
+```csharp
+Private Shared ReadOnly _regex As New Regex("[^0-9.-]+")
+Private Shared Function IsTextAllowed(ByVal text As String) As Boolean
+    Return _regex.IsMatch(text)
+End Function
+''' <summary>
+''' Used to prevent information entered to be non-integer values
+''' </summary>
+''' <param name="sender"></param>
+''' <param name="e"></param>
+Private Sub AssertIntegerTextBox_OnPreviewTextInput(
+    sender As Object,
+    e As TextCompositionEventArgs)
+
+    e.Handled = _regex.IsMatch(e.Text)
+
+End Sub
+```
+There is still a need to determine if there has been a value entered which in this case is done using [String.IsNullOrWhiteSpace](https://docs.microsoft.com/en-us/dotnet/api/system.string.isnullorempty?view=netframework-4.7.2) as in examples done above.
+
+```csharp
+Private Sub IntegerOnlyTextBox_OnClick(
+    sender As Object,
+    e As RoutedEventArgs)
+
+    If String.IsNullOrWhiteSpace(assertIntegerTextBox.Text) Then
+        MessageBox.Show("No value")
+    Else
+        MessageBox.Show($"Value is {assertIntegerTextBox.Text}")
+    End If
+
+End Sub
+```
+In the middle TextBox control a conversion is performed without checking to see if the value can be represented as an Integer. Novice developers tend to do this at least once without a try/catch.
+Then not knowing any better will not only surround this code with a try/catch they will have an empty catch. About the only time it is okay to have an empty catch is when traversing a folder structure were the operator does not have permissions to one or more folders.
+
+In the bottom TextBox a decimal has been entered were an Integer was expected. An option is to use [Decimal.TryParse](https://docs.microsoft.com/en-us/dotnet/api/system.decimal.truncate?view=netframework-4.7.2), use Decimal.Truncate to get the Integer value 
+which may be okay in some task while others this may not be okay dependent on business requirements along with operator thinking what happen to the decimal entered?
+
+```csharp
+Private Sub tryParseAssertionButton_Click(
+    sender As Object,
+    e As RoutedEventArgs) Handles tryParseAssertionButton.Click
+
+    If Not String.IsNullOrWhiteSpace(tryparseIntegerTextBox.Text) Then
+
+        Dim value As Integer = 0
+
+        If Integer.TryParse(tryparseIntegerTextBox.Text, value) Then
+            MessageBox.Show($"You entered a valid integer: {value}")
+        Else
+            MessageBox.Show($"'{tryparseIntegerTextBox.Text}' could not be converted to an integer")
+        End If
+
+    Else
+        MessageBox.Show("Please enter a value")
+    End If
+
+End Sub
+``````
+
+In a Windows Form project one method to assert that a input in a TextBox is an Integer is using [KeyPress event](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.keypress?view=netframework-4.7.2) of the TextBox.
+
+```csharp
+Private Sub AssertionOnInteger_KeyPressForOnlyIntegers(
+    sender As Object,
+    e As KeyPressEventArgs) _
+    Handles keyPressAssertionOnIntegerTextBox.KeyPress
+
+    '97 - 122 = Ascii codes for simple letters
+    '65 - 90  = Ascii codes for capital letters
+    '48 - 57  = Ascii codes for numbers
+
+    If Asc(e.KeyChar) <> 8 Then
+        If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
+            e.Handled = True
+        End If
+    End If
+
+End Sub
+```
+> Note there are other ways to perform assertion on string and converting to numbers using custom validator components and by implementing a component with [IExtenderProvider Interface](https://docs.microsoft.com/en-us/dotnet/api/system.componentmodel.iextenderprovider?view=netframework-4.7.2).
+

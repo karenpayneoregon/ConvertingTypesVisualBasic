@@ -2,7 +2,8 @@
 
 ''' <summary>
 ''' This is for showing how to work with casting, parsing and converting
-''' numbers. More code samples will be added over time.
+''' numbers. Code will come and go in this form as code here is used
+''' in the article as information is added.
 ''' </summary>
 Public Class Form1
     ''' <summary>
@@ -32,7 +33,9 @@ Public Class Form1
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub AssertionOnInteger_KeyPressForOnlyIntegers(sender As Object, e As KeyPressEventArgs) _
+    Private Sub AssertionOnInteger_KeyPressForOnlyIntegers(
+        sender As Object,
+        e As KeyPressEventArgs) _
         Handles keyPressAssertionOnIntegerTextBox.KeyPress
 
         '97 - 122 = Ascii codes for simple letters

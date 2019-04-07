@@ -14,8 +14,8 @@ Class MainWindow
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AssertIntegerTextBox_OnPreviewTextInput(
-        sender As Object,
-        e As TextCompositionEventArgs)
+    sender As Object,
+    e As TextCompositionEventArgs)
 
         e.Handled = _regex.IsMatch(e.Text)
 
