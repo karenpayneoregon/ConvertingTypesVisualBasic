@@ -22,7 +22,7 @@ Language extension methods are utilizing in many operations which in some cases 
 TODO
 
 ## Conventions <a name="ConventionsOverview"></a>
-All code presented uses the following directives, Option Strict On, Option Infer On. Using these directives assist with having quality code.
+All code presented uses the following directives, [Option Strict](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-strict-statement) On, [Option Infer](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-infer-statement) On. Using these directives assist with having quality code.
 
 All code presented uses the following directives, Option Strict On, Option Infer On. Using these directives assist with having quality code. 
 
@@ -123,6 +123,27 @@ Public Class Form1
         Dim firstName As String = firstNameTextBox.Text
         Dim lastName As String = lastNameTextBox.Text
 
+    End Sub
+End Class
+```
+When naming variables in general use names that make it apparent the data type. Some developers prefer a prefix e.g. for a string strFirstName where when defining a variable today in Visual Studio hovering over a variable will indicate it’s type so rather than strFirstName use firstName which 99 percent of the time is a string. In short lose the three-character prefix, give variables meaning full names. 
+
+Naming variables can change dependent on scope e.g. a private variable with a leading underscore quickly indicates you are working with a privately scoped variable e.g. _firstName while firstName would be in scope of the current method. When passing arguments/parameters to a method consider a consistent naming convention.
+
+In the following code sample shows using an underscore for a Private class level variable which is set by a parameter passed in via the new constructor which is available to methods within this class.
+
+```csharp
+Public Class DataOperations
+    Public Sub New()
+
+    End Sub
+    Private _customerIdentifer As Integer
+    ''' <summary>
+    ''' Setup for working with a specific customer
+    ''' </summary>
+    ''' <param name="pCustomerIdentifier">Existing Customer primary key</param>
+    Public Sub New(pCustomerIdentifier As Integer)
+        _customerIdentifer = pCustomerIdentifier
     End Sub
 End Class
 ```
