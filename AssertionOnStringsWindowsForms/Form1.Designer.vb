@@ -22,9 +22,16 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.firstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.lastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.addCustomerButton = New System.Windows.Forms.Button()
+        Me.emailLabel = New System.Windows.Forms.Label()
+        Me.personalEmailAddressTextBox = New System.Windows.Forms.TextBox()
+        Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -52,11 +59,51 @@ Partial Class Form1
         Me.firstNameTextBox.Size = New System.Drawing.Size(117, 20)
         Me.firstNameTextBox.TabIndex = 2
         '
+        'lastNameTextBox
+        '
+        Me.lastNameTextBox.Location = New System.Drawing.Point(92, 51)
+        Me.lastNameTextBox.Name = "lastNameTextBox"
+        Me.lastNameTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.lastNameTextBox.TabIndex = 3
+        '
+        'addCustomerButton
+        '
+        Me.addCustomerButton.Location = New System.Drawing.Point(244, 18)
+        Me.addCustomerButton.Name = "addCustomerButton"
+        Me.addCustomerButton.Size = New System.Drawing.Size(75, 23)
+        Me.addCustomerButton.TabIndex = 4
+        Me.addCustomerButton.Text = "Add"
+        Me.addCustomerButton.UseVisualStyleBackColor = True
+        '
+        'emailLabel
+        '
+        Me.emailLabel.AutoSize = True
+        Me.emailLabel.Location = New System.Drawing.Point(55, 82)
+        Me.emailLabel.Name = "emailLabel"
+        Me.emailLabel.Size = New System.Drawing.Size(31, 13)
+        Me.emailLabel.TabIndex = 5
+        Me.emailLabel.Text = "email"
+        '
+        'personalEmailAddressTextBox
+        '
+        Me.personalEmailAddressTextBox.Location = New System.Drawing.Point(92, 77)
+        Me.personalEmailAddressTextBox.Name = "personalEmailAddressTextBox"
+        Me.personalEmailAddressTextBox.Size = New System.Drawing.Size(117, 20)
+        Me.personalEmailAddressTextBox.TabIndex = 6
+        '
+        'ErrorProvider1
+        '
+        Me.ErrorProvider1.ContainerControl = Me
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(356, 318)
+        Me.Controls.Add(Me.personalEmailAddressTextBox)
+        Me.Controls.Add(Me.emailLabel)
+        Me.Controls.Add(Me.addCustomerButton)
+        Me.Controls.Add(Me.lastNameTextBox)
         Me.Controls.Add(Me.firstNameTextBox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -64,6 +111,7 @@ Partial Class Form1
         Me.Name = "Form1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Working with asserting strings"
+        CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -72,4 +120,9 @@ Partial Class Form1
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents firstNameTextBox As TextBox
+    Friend WithEvents lastNameTextBox As TextBox
+    Friend WithEvents addCustomerButton As Button
+    Friend WithEvents emailLabel As Label
+    Friend WithEvents personalEmailAddressTextBox As TextBox
+    Friend WithEvents ErrorProvider1 As ErrorProvider
 End Class
