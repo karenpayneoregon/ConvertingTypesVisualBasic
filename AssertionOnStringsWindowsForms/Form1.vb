@@ -22,16 +22,24 @@ Public Class Form1
         End If
 
     End Sub
-
+    ''' <summary>
+    ''' Ask to lose changes, if Yes is pressed the form will close,
+    ''' if No is selected the form stays open.
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If My.Dialogs.Question("Lose changes?") Then
+            CausesValidation = False
+            e.Cancel = False
+        End If
+    End Sub
+    Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
+        Close()
+    End Sub
 End Class
-Public Class Customer
-    Public Property FirstName() As String
-    Public Property LastName() As String
-    Public Property EmailAddress() As String
-End Class
 
-Public Class FileOperations
 
-End Class
+
 
 

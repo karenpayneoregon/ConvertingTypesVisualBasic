@@ -82,6 +82,7 @@ Public Class NewCustomerForm
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AddCustomerButton_Click(sender As Object, e As EventArgs) Handles AddCustomerButton.Click
+
         If ValidateChildren() Then
             CreateCustomer()
             DialogResult = DialogResult.OK
@@ -93,6 +94,7 @@ Public Class NewCustomerForm
 
     End Sub
     Private Sub CreateCustomer()
+
         Customer = New Customer() With
             {
                 .CompanyName = companyNameTextBox.Text,
@@ -101,6 +103,7 @@ Public Class NewCustomerForm
                 .StateCode = CType(stateComboBox.SelectedItem, State).Code,
                 .Active = activeCheckBox.Checked
             }
+
     End Sub
     ''' <summary>
     ''' CausesValidation must be set to False, otherwise the
@@ -109,7 +112,9 @@ Public Class NewCustomerForm
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub cancelButton_Click(sender As Object, e As EventArgs) Handles cancelButton.Click
+
         CausesValidation = False
         Close()
+
     End Sub
 End Class

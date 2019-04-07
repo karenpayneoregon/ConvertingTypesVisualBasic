@@ -31,6 +31,7 @@ Partial Class Form1
         Me.emailLabel = New System.Windows.Forms.Label()
         Me.personalEmailAddressTextBox = New System.Windows.Forms.TextBox()
         Me.ErrorProvider1 = New System.Windows.Forms.ErrorProvider(Me.components)
+        Me.closeButton = New System.Windows.Forms.Button()
         CType(Me.ErrorProvider1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -95,11 +96,22 @@ Partial Class Form1
         '
         Me.ErrorProvider1.ContainerControl = Me
         '
+        'closeButton
+        '
+        Me.closeButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.closeButton.Location = New System.Drawing.Point(244, 107)
+        Me.closeButton.Name = "closeButton"
+        Me.closeButton.Size = New System.Drawing.Size(75, 23)
+        Me.closeButton.TabIndex = 7
+        Me.closeButton.Text = "Close"
+        Me.closeButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(356, 318)
+        Me.ClientSize = New System.Drawing.Size(356, 155)
+        Me.Controls.Add(Me.closeButton)
         Me.Controls.Add(Me.personalEmailAddressTextBox)
         Me.Controls.Add(Me.emailLabel)
         Me.Controls.Add(Me.addCustomerButton)
@@ -125,4 +137,5 @@ Partial Class Form1
     Friend WithEvents emailLabel As Label
     Friend WithEvents personalEmailAddressTextBox As TextBox
     Friend WithEvents ErrorProvider1 As ErrorProvider
+    Friend WithEvents closeButton As Button
 End Class

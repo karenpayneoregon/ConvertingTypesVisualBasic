@@ -6,6 +6,7 @@
 2. [Asserting data](#Asserting1)
    1. [Strings](#Strings1)
    2. [Strings to numerics](#StringsNumerics)
+   3. [Strings array to numeric array](./Pages/StringArrayConversions.md)
 3. [Language Extensions](#LanguageExtensions1)
 
 
