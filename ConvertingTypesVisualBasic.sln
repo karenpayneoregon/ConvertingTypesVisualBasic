@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5B797476-EFA9-46C0-8A00-E7510EE4994F}"
 	ProjectSection(SolutionItems) = preProject
 		readme.md = readme.md
+		Pages\WorkingWithString.md = Pages\WorkingWithString.md
 	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StringExtensions", "StringExtensions\StringExtensions.vbproj", "{B54933DD-39DE-4B3F-9264-019BF6CFEBF6}"

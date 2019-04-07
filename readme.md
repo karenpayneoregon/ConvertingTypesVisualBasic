@@ -130,7 +130,7 @@ End Class
 
 ### Strings <a name="Strings1"></a>
 
-TODO (link to a specific page)
+Asserting
 
 ### Strings to numerics <a name="StringsNumerics"></a>
 
