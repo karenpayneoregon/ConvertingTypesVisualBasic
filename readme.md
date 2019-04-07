@@ -130,7 +130,7 @@ End Class
 
 ### Strings <a name="Strings1"></a>
 
-Asserting
+[Asserting](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/Pages/WorkingWithString.md).
 
 ### Strings to numerics <a name="StringsNumerics"></a>
 
