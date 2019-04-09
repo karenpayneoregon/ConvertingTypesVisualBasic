@@ -59,6 +59,7 @@ Partial Class Form1
         Me.firstNameTextBox.Name = "firstNameTextBox"
         Me.firstNameTextBox.Size = New System.Drawing.Size(117, 20)
         Me.firstNameTextBox.TabIndex = 2
+        Me.firstNameTextBox.Text = "Karen"
         '
         'lastNameTextBox
         '

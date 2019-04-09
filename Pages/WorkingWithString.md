@@ -41,8 +41,6 @@ Public Class Form1
     Private Sub addCustomerButton_Click(sender As Object, e As EventArgs) _
         Handles addCustomerButton.Click
 
-        Controls.OfType(Of TextBox).Any(Function(textBox) String.IsNullOrWhiteSpace(textBox.Text))
-
         If Controls.OfType(Of TextBox).Any(Function(textBox) String.IsNullOrWhiteSpace(textBox.Text)) Then
 
             MessageBox.Show("All fields are required")
