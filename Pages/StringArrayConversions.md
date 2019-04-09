@@ -42,13 +42,6 @@ If this type of assertion is needed often a function can be created and placed i
 
 ```csharp
 Public Module ArrayHelpers
-    ''' <summary>
-    ''' Determine if all elements can be converted to an Integer
-    ''' </summary>
-    ''' <param name="sender">String array with Integer values</param>
-    ''' <returns>
-    ''' True if all elements can be converted to Integer, 
-    ''' False if one or more elements can not be converted</returns>
     Public Function CanConvertToIntegerArray(sender() As String) As Boolean
         Dim testValue As Integer
         Return sender.All(Function(input) Integer.TryParse(input, testValue))
