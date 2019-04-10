@@ -1,6 +1,4 @@
 ﻿Imports System.ComponentModel
-Imports NumericHelpers.LanguageExtensions
-
 Public Class Form1
     Private Sub addCustomerButton_Click(sender As Object, e As EventArgs) _
         Handles addCustomerButton.Click
