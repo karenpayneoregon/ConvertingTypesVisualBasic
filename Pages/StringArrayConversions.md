@@ -266,7 +266,7 @@ Public Function ToIntegerArray(sender() As String) As Integer()
 End Function
 ```
 
-##### determine indexes which do not represent Integers
+##### Determine indexes which do not represent Integers
 
 The following is an inversion of the above where the condition was .IsInteger = True this method 
 does .IsInteger = False along with asking for the index rather than the actual value using [GetNonIntegerIndexes](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/NumericHelpers/LanguageExtensions/IntegerArrayExtensions.vb#L78).
