@@ -87,18 +87,18 @@
                     Return If(Double.TryParse(item, integerValue),
                               New With
                                  {
-                                     .IsIDouble = True,
+                                     .IsInteger = True,
                                      .Index = index
                                  },
                               New With
                                  {
-                                     .IsIDouble = False,
+                                     .IsInteger = False,
                                      .Index = index
                                  }
                               )
                 End Function).
                 ToArray().
-                Where(Function(item) item.IsIDouble = False).
+                Where(Function(item) item.IsInteger = False).
                 Select(Function(item) item.Index).
                 ToArray()
 

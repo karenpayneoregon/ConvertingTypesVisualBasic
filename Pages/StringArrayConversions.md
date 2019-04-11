@@ -1,5 +1,7 @@
 # String array to numeric array
 
+> In this section conversion from string array to Integer arrays are discussed, in the repository there are mirror method for Long, Decimal and Double in [NumericHelpers project](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/tree/master/NumericHelpers/LanguageExtensions).
+> 
 Working with arrays can prove challenging when first starting out having to convert a string array which should contain only Integer, Decimal or Double values in each element of an array. A common practice is to use code shown below.
 
 ```csharp
@@ -102,9 +104,13 @@ End Module
 There are two paths to take when converting a String array to an Integer array, perserve all elements by setting elements which can not be converted to Integer to a default value such as 0 while the other path is to create an Integer array with only the values which can be converted to Integers.
 
 ##### preserve all elements
-The first path, preserve all elements where non-integer values will have a default value, in this case 0.
+The first path, preserve all elements where non-integer values will have a 
+default value, in this case 0.
 
-Rather than creating a function this will be done with a function setup as a language extension method. This is done by creating a code module as shown below.
+Rather than creating a function this will be done with a function setup as a 
+language extension method. This is done by creating a code module as shown below.
+
+[ToIntegerPreserveArray()](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/NumericHelpers/LanguageExtensions/IntegerArrayExtensions.vb#L59)
 
 ```csharp
 Public Module IntegerArrayExtensions
@@ -195,11 +201,124 @@ Breaking down the code for displaying information on the converted array.
 
 In the prior example the resulting Integer array will be the exact size as the String array. In this section if a string element can not be converted to an Integer value those elements are discarded.
 
->TODO
+Consider reading a String array which has elements which are not Integer type and are consistant e.g. reading lines from a file.
+
+<pre>
+1,Karen,Payne,1956
+2,Bob,Jones,1977
+3,Mary,Adams,1984
+</pre>
+
+The task is to obtain the first element and the last element. In the code sample below the program reads a file named TextFile1.txt which resides in the same folder as the program's executable with the content shown above.
+
+Using File.ReadAllLines which returns a string array of lines in the file where each item to read is delimited by a comma.
+
+With a For-Each on each iteration a extension method, ToStringArray converts the string representing a line in the string array to a string array. This is followed by invoking ToIntegerArray which will return only integer values.
+
+```csharp
+Public Class Form2
+    Private Sub exampleButton_Click(sender As Object, e As EventArgs) _
+        Handles exampleButton.Click
+
+        Dim fileName = Path.Combine(
+            AppDomain.CurrentDomain.BaseDirectory, "TextFile1.txt")
+
+        Dim linesFromFile = File.ReadAllLines(fileName)
+
+        For Each line As String In linesFromFile
+            Dim items = line.ToStringArray().ToIntegerArray
+            Console.WriteLine($"Id: {items(0)}, Birth Year {items(1)}")
+        Next
+    End Sub
+End Class
+```
+Here is the definition for ToStringArray which is a simple function which by default accepts a string which is split into a string array delimited by a comma which is defined as Optional meaning if the string is delimited by a comma the parameter need not be passed while if the string is delimited by another delimitor other than a comma the delimitor needs to be passed.
+
+```csharp
+<Runtime.CompilerServices.Extension>
+Public Function ToStringArray(
+    sender As String,
+    Optional separator As Char = ","c) As String()
+
+    Return sender.Split(separator)
+End Function
+```
+
+Moving on to the language extension [ToIntegerArray](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/NumericHelpers/LanguageExtensions/IntegerArrayExtensions.vb#L37), to determine if an element can represent an Integer Integer.TryParse checks if the string can be converted when creating an instance of an anonymous type, .IsInteger stored the result of Integer.TryParse while .Value contains the result, if "Amy" is parsed .Value will contain 0 and .IsInteger will be False while a value of 12 will set .Value to 12 and .IsInteger to True.
+
+In turn .Where condition specifies .IsInteger = True which in turn using .Select returns only Integer values.
+
+```csharp
+<Runtime.CompilerServices.Extension>
+Public Function ToIntegerArray(sender() As String) As Integer()
+	Return Array.ConvertAll(sender,
+	Function(input)
+		Dim value As Integer
+		Return New With
+		{
+			.IsInteger = Integer.TryParse(input, value),
+			.Value = value
+		}
+	End Function).
+	Where(Function(result) result.IsInteger).
+	Select(Function(result) result.Value).
+	ToArray()
+End Function
+```
 
 ##### determine indexes which do not represent Integers
->TODO
 
-**Work in Progress**
+The following is an inversion of the above where the condition was .IsInteger = True this method 
+does .IsInteger = False along with asking for the index rather than the actual value using [GetNonIntegerIndexes](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/master/NumericHelpers/LanguageExtensions/IntegerArrayExtensions.vb#L78).
+
+```csharp
+<Runtime.CompilerServices.Extension>
+Public Function GetNonIntegerIndexes(sender() As String) As Integer()
+	Return sender.Select(
+	Function(item, index)
+
+		Dim integerValue As Integer
+		Return If(Integer.TryParse(item, integerValue),
+			New With
+				{
+				    .IsInteger = True,
+				    .Index = index
+				},
+			New With
+				{
+				    .IsInteger = False,
+				    .Index = index
+				}
+			)
+	End Function).
+	ToArray().
+	Where(Function(item) item.IsInteger = False).
+	Select(Function(item) item.Index).
+	ToArray()
+
+End Function
+```
+Code sample which rather than obtaining values for the first and last element will return the 
+two middle elements which are first and last name indexes.
+
+```csharp
+Public Class Form2
+    Private Sub exampleButton_Click(sender As Object, e As EventArgs) _
+        Handles exampleButton.Click
+
+        Dim fileName = Path.Combine(
+            AppDomain.CurrentDomain.BaseDirectory, "TextFile1.txt")
+
+        Dim linesFromFile = File.ReadAllLines(fileName)
+
+        For Each line As String In linesFromFile
+            Dim items = line.ToStringArray().GetNonIntegerIndexes
+            Console.WriteLine($"First name: {items(0)}, Last name {items(1)}")
+        Next
+    End Sub
+End Class
+```
+
+
 
 [Back to main page](../readme.md)
