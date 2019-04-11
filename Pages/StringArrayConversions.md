@@ -103,7 +103,7 @@ End Module
 
 There are two paths to take when converting a String array to an Integer array, perserve all elements by setting elements which can not be converted to Integer to a default value such as 0 while the other path is to create an Integer array with only the values which can be converted to Integers.
 
-##### preserve all elements
+##### Preserve all elements
 The first path, preserve all elements where non-integer values will have a 
 default value, in this case 0.
 
