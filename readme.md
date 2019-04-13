@@ -7,7 +7,7 @@
    1. [Strings](#Strings1)
    2. [Strings to numerics](#StringsNumerics)
    3. [Strings array to numeric array](./Pages/StringArrayConversions.md)
-3. [Language Extensions](#LanguageExtensions1)
+
 
 
 ## Overview
@@ -18,10 +18,6 @@ Information and code samples are geared towards both novice and intermediate ski
 Language extension methods are utilizing in many operations which in some cases utilize LINQ or Lambda, when reviewing these methods do not to hung up on the complexity, instead if the method(s) work simply use them. 
 
 > The code presented should not be considered that they belong to one platform when presented in  [ASP.NET](https://dotnet.microsoft.com/apps/aspnet), [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/) or [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/). For example, exploring code in a WPF project may reveal a useful regular expression pattern or a unit test may lead to a method useful in a Windows Form project
-
-## Asserting data <a name="Asserting1"></a>
-
-TODO
 
 ## Conventions <a name="ConventionsOverview"></a>
 All code presented uses the following directives, [Option Strict](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-strict-statement) On, [Option Infer](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-infer-statement) On. Using these directives assist with having quality code.
@@ -157,7 +153,3 @@ End Class
 - [Strings to numerics](./Pages/WorkingWithString.md)<a name="StringsNumerics"></a>
 
 
-
-## Language Extensions <a name="LanguageExtensions1"></a>
-
-TODO (link to a specific page)
