@@ -21,7 +21,7 @@ Language extension methods are utilizing in many operations which in some cases 
 
 ## Asserting data <a name="Asserting1"></a>
 
-TODO
+
 
 ## Conventions <a name="ConventionsOverview"></a>
 All code presented uses the following directives, [Option Strict](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-strict-statement) On, [Option Infer](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-infer-statement) On. Using these directives assist with having quality code.
