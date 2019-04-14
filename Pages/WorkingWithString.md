@@ -62,7 +62,6 @@ Third attempt, using control validation. In the code sample below
 [Control.Validated event](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.validated?view=netframework-4.7.2) is used along 
 with [ContainerControl.ValidateChildren](http://example.com) Method to cause in this case the firstNameTextBox to perform validation.
 
-For a complete working example is [the following project](http://example.com) in this repository.
 
 ```csharp
 Public Class Form1

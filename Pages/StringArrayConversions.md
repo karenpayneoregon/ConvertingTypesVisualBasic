@@ -41,7 +41,8 @@ Else
     Console.WriteLine("Not safe to perform conversion")
 End If
 ```
-If this type of assertion is needed often a function can be created and placed in a common code module.
+If this type of assertion is needed often a function can be created and placed in a common 
+code module.
 
 ```csharp
 Public Module ArrayHelpers

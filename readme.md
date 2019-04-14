@@ -1,4 +1,4 @@
-# VB.NET Data conversions
+# VB.NET Type conversions part 1
 ## Table of Contents
 1. [Overview](#Overview)
 2. [Conventions](#ConventionsOverview)
@@ -21,8 +21,6 @@ Language extension methods are utilizing in many operations which in some cases 
 
 ## Conventions <a name="ConventionsOverview"></a>
 All code presented uses the following directives, [Option Strict](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-strict-statement) On, [Option Infer](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference//statements/option-infer-statement) On. Using these directives assist with having quality code.
-
-All code presented uses the following directives, Option Strict On, Option Infer On. Using these directives assist with having quality code. 
 
 A common practice with novice developers to programming or have coded in perhaps JavaScript are not use to strong typing as shown in the code below.
 
