@@ -27,7 +27,7 @@ Imports NumericHelpers.LanguageExtensions
     ''' Attempt to parse a string which can not be converted to an Integer.
     ''' No assertion requires pass ExpectedException attributive.
     ''' </summary>
-    <TestMethod, ExpectedException(GetType(System.FormatException),
+    <TestMethod, ExpectedException(GetType(FormatException),
           "Integer.Parse expects an Integer, failed as expected.")>
     Public Sub WhatHappensWhenValueIsNotIntegerNoFormatting_Integer()
         Dim nonInteger = "A"
