@@ -59,6 +59,18 @@ Imports NumericHelpers.LanguageExtensions
         Assert.IsTrue(DoubleArrayValidator.SequenceEqual(results))
     End Sub
     ''' <summary>
+    ''' Test converting from string array of currency values to
+    ''' a pure double array discarding values which can not be 
+    ''' converted.
+    ''' </summary>
+    <TestMethod()>
+    Public Sub CurrencyStringArrayToDoubleArray()
+        Dim expected = {2.4, 6.9, 1.3, 1}
+        Dim results = StringArrayCurrencyDouble.FromCurrencyToDoubleArray()
+
+        Assert.IsTrue(expected.SequenceEqual(results))
+    End Sub
+    ''' <summary>
     ''' Given a string array with non-Double values, test obtaining
     ''' indices of non-Double values. Note the resulting array is zero base.
     ''' </summary>

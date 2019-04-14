@@ -15,7 +15,9 @@
 
         Protected ReadOnly StringArrayMixedTypesDouble() As String =
                                {"2.4", "4.8'", Nothing, "6.9", "[8.5]", "", "1.3", "Karen", "1"}
-
+        '2.4,6.9,1.3,1
+        Protected ReadOnly StringArrayCurrencyDouble() As String =
+                               {"2.4", "4.8'", Nothing, "6.9", "[8.5]", "", "1.3", "Karen", "1"}
         Protected ReadOnly DoubleArrayValidator() As Double =
                                {2.4, 0, 0, 6.9, 0, 0, 1.3, 0, 1}
 

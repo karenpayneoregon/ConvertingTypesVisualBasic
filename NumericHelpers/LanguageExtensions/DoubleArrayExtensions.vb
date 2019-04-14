@@ -1,4 +1,6 @@
-﻿Namespace LanguageExtensions
+﻿Imports System.Globalization
+
+Namespace LanguageExtensions
     Public Module DoubleArrayExtensions
         ''' <summary>
         ''' Validate all elements in a string array can be converted to a Double array
@@ -41,6 +43,33 @@
                                         Return New With
                                        {
                                            .IsDDouble = Double.TryParse(input, value),
+                                           .Value = value
+                                       }
+                                    End Function).
+                Where(Function(result) result.IsDDouble).
+                Select(Function(result) result.Value).
+                ToArray()
+        End Function
+        ''' <summary>
+        ''' Convert a string array of currency values to
+        ''' a pure double array using current culture
+        ''' </summary>
+        ''' <param name="sender">
+        ''' String array with one or more currency values
+        ''' </param>
+        ''' <returns>
+        ''' Element which could be converted to type double
+        ''' </returns>
+        <Runtime.CompilerServices.Extension>
+        Public Function FromCurrencyToDoubleArray(sender() As String) As Double()
+            Return Array.ConvertAll(sender,
+                                    Function(input)
+                                        Dim value As Double
+                                        Return New With
+                                       {
+                                           .IsDDouble = Double.TryParse(
+                                               input, NumberStyles.Number Or NumberStyles.AllowCurrencySymbol,
+                                               CultureInfo.CurrentCulture, value),
                                            .Value = value
                                        }
                                     End Function).
