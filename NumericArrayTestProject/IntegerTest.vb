@@ -21,6 +21,7 @@ Imports NumericHelpers.LanguageExtensions
         ).ToList()
 
         Assert.IsTrue(nullableResults.SequenceEqual(expected))
+
     End Sub
     ''' <summary>
     ''' Attempt to parse a string which can not be converted to an Integer.
@@ -72,7 +73,8 @@ Imports NumericHelpers.LanguageExtensions
                         $"Expected only {expectedCount} elements could be converted")
 
         ' check if values are as expected
-        Assert.IsTrue(integerArrayValidator.SequenceEqual(results))
+        Assert.IsTrue(IntegerArrayValidator.SequenceEqual(results))
+
     End Sub
     ''' <summary>
     ''' Given a string array with non-integer values, test obtaining
@@ -84,6 +86,7 @@ Imports NumericHelpers.LanguageExtensions
         Dim expectedIndices = {1, 2, 4, 5, 6, 7}
 
         Assert.IsTrue(expectedIndices.SequenceEqual(results))
+
     End Sub
     ''' <summary>
     ''' Given a string array containing all valid Integers determine 
@@ -95,6 +98,7 @@ Imports NumericHelpers.LanguageExtensions
 
         Assert.IsTrue(results,
                       "Expected all elements to be valid Integers")
+
     End Sub
     ''' <summary>
     ''' Given a string array containing all valid Integers determine 
@@ -105,5 +109,6 @@ Imports NumericHelpers.LanguageExtensions
         Dim results = stringArrayMixedTypesIntegers.CanConvertToIntArray()
 
         Assert.IsFalse(results)
+
     End Sub
 End Class
