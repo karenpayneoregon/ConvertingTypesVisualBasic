@@ -1,11 +1,15 @@
 ﻿Namespace LanguageExtensions
     Public Module IntegerArrayExtensions
         ''' <summary>
-        ''' Validate all elements in a string array can be converted to a Integer array
+        ''' Validate all elements in a string array can be converted to a 
+        ''' Integer array
         ''' </summary>
-        ''' <param name="sender">String Array with at lease one element</param>
+        ''' <param name="sender">
+        ''' String Array with at least one element
+        ''' </param>
         ''' <returns>
-        ''' True if all elements are valid Integers, False is at least one element is not a valid Integer
+        ''' True if all elements are valid Integers, 
+        ''' False is at least one element is not a valid Integer
         ''' </returns>
         <Runtime.CompilerServices.Extension>
         Public Function CanConvertToIntArray(sender() As String) As Boolean
@@ -15,7 +19,9 @@
         ''' <summary>
         ''' Convert a Integer array to a String array
         ''' </summary>
-        ''' <param name="sender"></param>
+        ''' <param name="sender">
+        ''' Integer array with one or more elements
+        ''' </param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function IntegerArrayToStringArray(sender() As Integer) As String()
@@ -31,7 +37,9 @@
         ''' converted the length of the returning array will be a
         ''' length of 2.
         ''' </summary>
-        ''' <param name="sender"></param>
+        ''' <param name="sender">
+        ''' String Array with at least one element
+        ''' </param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function ToIntegerArray(sender() As String) As Integer()
@@ -50,10 +58,13 @@
         End Function
         ''' <summary>
         ''' Given a string array assumed to be all integers return
-        ''' all elements no matter if they can be converted. Non integer
+        ''' all elements no matter if they can be converted. 
+        ''' Non integer
         ''' values are returned as 0.
         ''' </summary>
-        ''' <param name="sender"></param>
+        ''' <param name="sender">
+        ''' String Array with at least one element
+        ''' </param>
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function ToIntegerPreserveArray(sender() As String) As Integer()
@@ -69,8 +80,13 @@
         ''' see if there are elements that are not convertible to integer
         ''' and return their index in the string array.
         ''' </summary>
-        ''' <param name="sender">String array</param>
-        ''' <returns>If non integer elements found return their index in the string array</returns>
+        ''' <param name="sender">
+        ''' String array
+        ''' </param>
+        ''' <returns>
+        ''' If non integer elements found return their index in 
+        ''' the string array
+        ''' </returns>
         ''' <remarks>
         ''' Indices are zero based
         ''' </remarks>
