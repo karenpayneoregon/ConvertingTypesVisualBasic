@@ -1,6 +1,6 @@
 ﻿Namespace TestClasses
     Public Class TestBase
-        Protected ReadOnly StringArrayForConvertingToTimeSpan() As String =
+        Protected ReadOnly ImperfectStringArrayForConvertingToTimeSpan() As String =
                                {
                                    "0",
                                    "14",
