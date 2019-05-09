@@ -32,6 +32,10 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ParsingAndConvertingWPF", "
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AssertionOnStringsWindowsForms", "AssertionOnStringsWindowsForms\AssertionOnStringsWindowsForms.vbproj", "{631FC441-2E94-4CCE-95DA-A411F0A46009}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DateAndTimeHelpers", "DateAndTimeHelpers\DateAndTimeHelpers.vbproj", "{842D07A6-C11A-46D9-845A-A2F6105EFE92}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TimeSpanTestProject", "TimeSpanTestProject\TimeSpanTestProject.vbproj", "{BCC64FFF-DD14-45DF-951E-13CF070B7BBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +74,14 @@ Global
 		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{631FC441-2E94-4CCE-95DA-A411F0A46009}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842D07A6-C11A-46D9-845A-A2F6105EFE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842D07A6-C11A-46D9-845A-A2F6105EFE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842D07A6-C11A-46D9-845A-A2F6105EFE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842D07A6-C11A-46D9-845A-A2F6105EFE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +95,8 @@ Global
 		{E7620B49-75F3-44F6-80D1-9C17949ADC27} = {560158DA-C939-4137-ACCB-1E004B66F352}
 		{875589CA-722C-4B37-95AF-482BC4929293} = {F41DBCC3-8E57-42F4-B4F3-A51407DE2397}
 		{631FC441-2E94-4CCE-95DA-A411F0A46009} = {560158DA-C939-4137-ACCB-1E004B66F352}
+		{842D07A6-C11A-46D9-845A-A2F6105EFE92} = {710B979F-410F-4FDD-8BEC-C0A66EB6D669}
+		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD} = {649ADA5D-3885-48F4-92D6-FBDC54B50A95}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCE875DE-3693-4C88-AC1E-AFCFFF19957E}
