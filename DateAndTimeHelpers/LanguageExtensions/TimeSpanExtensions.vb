@@ -102,11 +102,6 @@ Namespace LanguageExtensions
             Return Date.Today.Add(sender).ToString(format)
         End Function
         <Runtime.CompilerServices.Extension>
-        Public Function ToReadableAgeString(span As TimeSpan) As String
-            Return String.Format("{0:0}", span.Days / 365.25)
-        End Function
-
-        <Runtime.CompilerServices.Extension>
         Public Function ToReadableString(span As TimeSpan) As String
             Dim result As String = $"{If(span.Duration().Days > 0, $"{span.Days:0} day{If(span.Days = 1, String.Empty, "s")}, ", String.Empty)}{If(span.Duration().Hours > 0, String.Format("{0:0} hour{1}, ", span.Hours, If(span.Hours = 1, String.Empty, "s")), String.Empty)}{If(span.Duration().Minutes > 0, String.Format("{0:0} minute{1}, ", span.Minutes, If(span.Minutes = 1, String.Empty, "s")), String.Empty)}{If(span.Duration().Seconds > 0, String.Format("{0:0} second{1}", span.Seconds, If(span.Seconds = 1, String.Empty, "s")), String.Empty)}"
 
