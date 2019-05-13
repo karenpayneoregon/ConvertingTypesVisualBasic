@@ -7,6 +7,8 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 ''' When working with Date and time conversions read and understand
 ''' the rules laid out in the following Microsoft documentation page.
 ''' https://docs.microsoft.com/en-us/dotnet/standard/base-types/parsing-datetime
+''' 
+''' For many, the million dollar question "Conversion from String to type Date is not valid."
 ''' </summary>
 <TestClass()> Public Class DateTimeTest
     ''' <summary>
