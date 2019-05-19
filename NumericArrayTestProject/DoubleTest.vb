@@ -1,7 +1,7 @@
 ﻿Imports NumericArrayTestProject.BaseClasses
 Imports NumericHelpers.LanguageExtensions
 
-<TestClass()> Public Class DoubleTest
+<TestClass(), TestCategory("Numeric - Double")> Public Class DoubleTest
     Inherits TestBase
 
     ''' <summary>

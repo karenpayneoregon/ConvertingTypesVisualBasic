@@ -1,6 +1,7 @@
 ﻿Imports System.Globalization
 Imports System.Text
 Imports DateAndTimeHelpers.LanguageExtensions
+Imports DateTimeTestProject.BaseClasses
 Imports Microsoft.VisualStudio.TestTools.UnitTesting
 
 ''' <summary>
@@ -10,7 +11,78 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
 ''' 
 ''' For many, the million dollar question "Conversion from String to type Date is not valid."
 ''' </summary>
-<TestClass()> Public Class DateTimeTest
+<TestClass(), TestCategory("Dates")> Public Class DateTimeTest
+    Inherits TestBase
+
+    ''' <summary>
+    ''' Demonstrates how an expected conversion may fail because
+    ''' the assumption is incorrect for the expected result in the
+    ''' first assertion while the second assertion is correct.
+    ''' </summary>
+    <TestMethod()> Public Sub SimpleConversionFromStringToDateTest()
+
+        Dim dateValueGerman = "05.11.2019"
+        Dim dateValueUS = "05/11/2019"
+
+        '
+        ' Parse will convert to current culture
+        '
+        Dim resultDate As Date = Date.Parse(dateValueGerman)
+        Dim test1 = resultDate.ToString("MM/dd/yyyy")
+
+        '
+        ' date string will not match as result1 has / as date separator 
+        '
+        Assert.IsFalse(test1 = dateValueGerman)
+
+        '
+        ' This time both values match as the right date separator is there.
+        '
+        Assert.IsTrue(test1 = dateValueUs)
+
+
+    End Sub
+    <TestMethod()> Public Sub OtherParsingTest()
+
+        Dim dateTimeString As String = "201905180956"
+
+        Dim dt As DateTime = DateTime.ParseExact(dateTimeString, "yyyyMMddhhmm", Nothing)
+
+        Dim expectedDateTime As DateTime = New DateTime(2019, 5, 18, 9, 56, 0)
+        Assert.IsTrue(dt = expectedDateTime)
+
+        dateTimeString = "20190518"
+        dt = DateTime.ParseExact(dateTimeString, "yyyyMMdd", Nothing)
+    End Sub
+    ''' <summary>
+    ''' Demonstrates listing known time zone names
+    ''' </summary>
+    <TestMethod()> Public Sub KnowTimeZoneNamesMethod()
+        GetAllTimeZones().ToList().ForEach(Sub(name) Console.WriteLine(name))
+    End Sub
+    ''' <summary>
+    ''' Not a test but instead an example of converting local date time
+    ''' to another time zone.
+    ''' </summary>
+    <TestMethod()> Public Sub ConvertDateTimeToAnotherTimeZoneMethod()
+        Dim now As Date = Date.Now
+
+        ' write the time, the date and the time converted to UTC
+
+        Console.WriteLine($"Now -> Time:{now} " & vbTab &
+                          $" Date:{now.Date.ToShortDateString()} " & vbTab &
+                          $" Converted2UTC:{now.ToUniversalTime()}")
+
+        ' convert our dateTime to "US Eastern Standard Time"
+        Dim easternStandard As Date = TimeZoneInfo.ConvertTime(
+            now, TimeZoneInfo.FindSystemTimeZoneById("US Eastern Standard Time"))
+
+        ' write the time, the date and the time converted to UTC from our converted time
+        Console.WriteLine($"Now In New Zealand -> Time:{easternStandard} " &
+                          $" Date:{easternStandard.Date.ToShortDateString()} " & vbTab &
+                          $" Converted2UTC:{easternStandard.ToUniversalTime()}")
+
+    End Sub
     ''' <summary>
     ''' Demonstrates converting a string to a Date by providing
     ''' three different formats as possibilities rather than one
@@ -36,6 +108,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         For index As Integer = 0 To dateArray.Length - 1
 
             Dim value = dateArray(index)
+
             Date.TryParseExact(value, format,
                                DateTimeFormatInfo.InvariantInfo,
                                DateTimeStyles.None, dateValue)
@@ -81,7 +154,79 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         Next
 
     End Sub
-    <TestMethod()> Public Sub TestMethod1()
+    ''' <summary>
+    ''' Given a date array for the current culture create a string array
+    ''' to another culture.
+    ''' </summary>
+    <TestMethod()> Public Sub ConvertingDateCurrentCultureToAnotherCultureAsStringTest()
+
+        Dim germanCulture = "de-DE"
+
+        Dim dates = Enumerable.Range(1, 10).
+                Select(Function(value) New Date(Now.Year, Now.Month, value)).ToArray()
+
+        Dim expected =
+                {
+                    "05.01.2019", "05.02.2019", "05.03.2019", "05.04.2019",
+                    "05.05.2019", "05.06.2019", "05.07.2019", "05.08.2019",
+                    "05.09.2019", "05.10.2019"
+                }
+
+        Dim results = dates.Select(
+            Function(value)
+                Return value.ToString("MM/dd/yyyy", CultureInfo.CreateSpecificCulture(germanCulture))
+            End Function).ToArray()
+
+        Assert.IsTrue(results.SequenceEqual(expected))
+
+    End Sub
+    ''' <summary>
+    ''' Given a string array in another culture convert to current culture
+    ''' using the date format for the dates in the string array, if the format
+    ''' is not correct ParseExact will throw an exception so the developer needs
+    ''' to know what the culture is, in this case in the string array.
+    ''' </summary>
+    <TestMethod()> Public Sub ConvertingStringFromOneCultureToAnotherAsDateTest()
+
+        Dim dateFormat = "MM.dd.yyyy"
+
+        Dim stringDateArray =
+                {
+                    "05.01.2019", "05.02.2019", "05.03.2019", "05.04.2019",
+                    "05.05.2019", "05.06.2019", "05.07.2019", "05.08.2019",
+                    "05.09.2019", "05.10.2019"
+                }
+
+        Dim expectedResults =
+                {
+                    #05/01/2019#, #05/02/2019#, #05/03/2019#, #05/04/2019#,
+                    #05/05/2019#, #05/06/2019#, #05/07/2019#, #05/08/2019#,
+                    #05/09/2019#, #05/10/2019#
+                }
+
+
+        Dim resultDateArray(9) As Date
+
+        For index As Integer = 0 To stringDateArray.Length - 1
+            resultDateArray(index) = Date.ParseExact(stringDateArray(index), dateFormat, Nothing)
+        Next
+
+        Assert.IsTrue(resultDateArray.SequenceEqual(expectedResults))
+
+    End Sub
+    ''' <summary>
+    ''' Using the same requirements of test above read dates from a text file.
+    ''' </summary>
+    <TestMethod()> Public Sub ConvertingFromFileStringFromOneCultureToAnotherAsDateTest()
+
+        Dim expectedResults =
+                {
+                    #05/01/2019#, #05/02/2019#, #05/03/2019#, #05/04/2019#, #05/05/2019#
+                }
+
+        Dim resultDates = GetEventDates().Select(Function(item) item.DateOf).ToArray()
+
+        Assert.IsTrue(expectedResults.SequenceEqual(resultDates))
 
     End Sub
 End Class

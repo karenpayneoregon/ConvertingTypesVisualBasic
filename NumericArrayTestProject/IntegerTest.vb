@@ -1,7 +1,7 @@
 ﻿Imports NumericArrayTestProject.BaseClasses
 Imports NumericHelpers.LanguageExtensions
 
-<TestClass()> Public Class IntegerTest
+<TestClass(), TestCategory("Numeric - Integer")> Public Class IntegerTest
     Inherits TestBase
     ''' <summary>
     ''' Given a string array where some elements can be converted to 

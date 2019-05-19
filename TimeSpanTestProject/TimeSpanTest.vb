@@ -1,9 +1,7 @@
-﻿Imports System.Text
-Imports DateAndTimeHelpers.LanguageExtensions
-Imports Microsoft.VisualStudio.TestTools.UnitTesting
+﻿Imports DateAndTimeHelpers.LanguageExtensions
 Imports TimeSpanTestProject.TestClasses
 
-<TestClass()> Public Class TimeSpanTest
+<TestClass(), TestCategory("TimeSpan")> Public Class TimeSpanTest
     Inherits TestBase
 
     ''' <summary>

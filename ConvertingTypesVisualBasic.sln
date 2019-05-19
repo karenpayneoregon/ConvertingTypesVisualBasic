@@ -40,6 +40,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DateTimeTestProject", "Date
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BindingData", "BindingData\BindingData.vbproj", "{125446EE-77FD-4D63-BA4A-BE581561D79F}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WorkingWithDateTime", "WorkingWithDateTime\WorkingWithDateTime.vbproj", "{A0990795-3138-4059-901E-6B2E629D3A42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{125446EE-77FD-4D63-BA4A-BE581561D79F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{125446EE-77FD-4D63-BA4A-BE581561D79F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{125446EE-77FD-4D63-BA4A-BE581561D79F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0990795-3138-4059-901E-6B2E629D3A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0990795-3138-4059-901E-6B2E629D3A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0990795-3138-4059-901E-6B2E629D3A42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0990795-3138-4059-901E-6B2E629D3A42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -111,6 +117,7 @@ Global
 		{BCC64FFF-DD14-45DF-951E-13CF070B7BBD} = {649ADA5D-3885-48F4-92D6-FBDC54B50A95}
 		{AD177ABD-12DA-46CB-B4B4-545CB37B02AE} = {649ADA5D-3885-48F4-92D6-FBDC54B50A95}
 		{125446EE-77FD-4D63-BA4A-BE581561D79F} = {560158DA-C939-4137-ACCB-1E004B66F352}
+		{A0990795-3138-4059-901E-6B2E629D3A42} = {560158DA-C939-4137-ACCB-1E004B66F352}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DCE875DE-3693-4C88-AC1E-AFCFFF19957E}
