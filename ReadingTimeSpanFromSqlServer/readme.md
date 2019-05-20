@@ -1,2 +1,2 @@
 ﻿# Code sample reading time from SQL-Server Table
-Before running this code sample, run DateTimeDatabaseScript.sql in BaseLibrary project along with changing the connection string server name.
+Before running this code sample, run [DateTimeDatabaseScript.sql](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/Article1/BaseLibrary/DatabaseScripts/DateTimeDatabaseScript.sql) in BaseLibrary project along with changing the connection string [server name](https://github.com/karenpayneoregon/ConvertingTypesVisualBasic/blob/Article1/BaseLibrary/Classes/TimeDataOperations.vb#L9).
