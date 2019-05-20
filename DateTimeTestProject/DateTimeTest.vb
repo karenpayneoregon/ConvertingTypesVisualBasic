@@ -38,7 +38,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         '
         ' This time both values match as the right date separator is there.
         '
-        Assert.IsTrue(test1 = dateValueUs)
+        Assert.IsTrue(test1 = dateValueUS)
 
 
     End Sub

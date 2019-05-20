@@ -65,7 +65,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseExceptionProperties.vb" />
+    <Compile Include="Classes\BaseExceptionProperties.vb" />
+    <Compile Include="Classes\SqlServerConnection.vb" />
+    <Compile Include="Classes\TimeDataOperations.vb" />
+    <Compile Include="Classes\TimeSpanItem.vb" />
+    <Compile Include="Interfaces\IConnection.vb" />
+    <Compile Include="LanguageExtensions\StringExtensions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -100,6 +105,10 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DatabaseScripts\DateTimeDatabaseScript.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

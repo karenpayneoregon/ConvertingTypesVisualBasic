@@ -1,5 +1,6 @@
 ﻿Imports System.IO
 Imports BaseLibrary
+Imports BaseLibrary.Classes
 
 Namespace Classes
     Public Class UnitedStates

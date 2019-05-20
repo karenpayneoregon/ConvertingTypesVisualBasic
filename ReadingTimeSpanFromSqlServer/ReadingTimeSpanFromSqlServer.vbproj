@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0990795-3138-4059-901E-6B2E629D3A42}</ProjectGuid>
+    <ProjectGuid>{B746E2FF-69B9-44F4-AD47-B56833F8A936}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>WorkingWithDateTime.My.MyApplication</StartupObject>
-    <RootNamespace>WorkingWithDateTime</RootNamespace>
-    <AssemblyName>WorkingWithDateTime</AssemblyName>
+    <StartupObject>ReadingTimeSpanFromSqlServer.My.MyApplication</StartupObject>
+    <RootNamespace>ReadingTimeSpanFromSqlServer</RootNamespace>
+    <AssemblyName>ReadingTimeSpanFromSqlServer</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>WorkingWithDateTime.xml</DocumentationFile>
+    <DocumentationFile>ReadingTimeSpanFromSqlServer.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>WorkingWithDateTime.xml</DocumentationFile>
+    <DocumentationFile>ReadingTimeSpanFromSqlServer.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -73,10 +73,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Additions\MyCulture.vb" />
-    <Compile Include="Classes\Hours.vb" />
-    <Compile Include="Classes\TimeIncrement.vb" />
-    <Compile Include="Classes\TimeItem.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -84,7 +80,6 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LanguageExtensions\DateTimeExtensions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -123,15 +118,12 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AssertionOnStringsWindowsForms\AssertionOnStringsWindowsForms.vbproj">
-      <Project>{631fc441-2e94-4cce-95da-a411f0a46009}</Project>
-      <Name>AssertionOnStringsWindowsForms</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DateAndTimeHelpers\DateAndTimeHelpers.vbproj">
-      <Project>{842d07a6-c11a-46d9-845a-a2f6105efe92}</Project>
-      <Name>DateAndTimeHelpers</Name>
+    <ProjectReference Include="..\BaseLibrary\BaseLibrary.vbproj">
+      <Project>{3c54a61a-c4ca-4656-ae54-7c31c74680a0}</Project>
+      <Name>BaseLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

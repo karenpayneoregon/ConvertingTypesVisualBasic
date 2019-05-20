@@ -1,15 +1,22 @@
-﻿Imports WorkingWithDateTime.Classes
+﻿Imports System.Globalization
+Imports DateAndTimeHelpers.LanguageExtensions
+Imports WorkingWithDateTime.Classes
 Imports WorkingWithDateTime.LanguageExtensions
 
 Public Class Form1
     Private Sub IsDateExamplesButton_Click(sender As Object, e As EventArgs) Handles IsDateExamplesButton.Click
+        Dim dateValue As Date
+        Dim dateStringValue = "May 18, 2019"
+        If Date.TryParse(dateStringValue, dateValue) Then
+            Console.WriteLine(dateValue)
+        End If
+
+
         Console.WriteLine(IsDate(CDate("5/18/2019")))
         Console.WriteLine(IsDate(#05/18/2019#))
         Console.WriteLine(IsDate("May 18, 2019"))
 
 
-        Dim dateStringValue = "May 18, 2019"
-        Dim dateValue As Date
 
         Dim separator = My.Culture.DateSeparator()
 
@@ -125,4 +132,10 @@ Public Class Form1
         dateTimePickerPreviousDate = DateTimePicker1.Value
 
     End Sub
+
+    Private Sub parsingDateButton_Click(sender As Object, e As EventArgs) Handles parsingDateButton.Click
+
+    End Sub
+
+
 End Class

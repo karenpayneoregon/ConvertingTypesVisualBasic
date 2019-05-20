@@ -27,6 +27,7 @@ Partial Class Form1
         Me.HoursComboBox = New System.Windows.Forms.ComboBox()
         Me.GetCurrentHoursComboBoxValueButton = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.parsingDateButton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'IsDateExamplesButton
@@ -74,11 +75,21 @@ Partial Class Form1
         Me.DateTimePicker1.Size = New System.Drawing.Size(93, 20)
         Me.DateTimePicker1.TabIndex = 5
         '
+        'parsingDateButton
+        '
+        Me.parsingDateButton.Location = New System.Drawing.Point(18, 90)
+        Me.parsingDateButton.Name = "parsingDateButton"
+        Me.parsingDateButton.Size = New System.Drawing.Size(179, 23)
+        Me.parsingDateButton.TabIndex = 6
+        Me.parsingDateButton.Text = "TryParse.Date"
+        Me.parsingDateButton.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(533, 189)
+        Me.Controls.Add(Me.parsingDateButton)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.GetCurrentHoursComboBoxValueButton)
         Me.Controls.Add(Me.HoursComboBox)
@@ -97,4 +108,5 @@ Partial Class Form1
     Friend WithEvents HoursComboBox As ComboBox
     Friend WithEvents GetCurrentHoursComboBoxValueButton As Button
     Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents parsingDateButton As Button
 End Class

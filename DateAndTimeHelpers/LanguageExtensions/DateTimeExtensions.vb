@@ -19,7 +19,7 @@ Namespace LanguageExtensions
         ''' <returns></returns>
         <Runtime.CompilerServices.Extension>
         Public Function ToDate(sender As String) As Date
-            Dim format() = {"dd/MM/yyyy", "d/M/yyyy", "dd-MM-yyyy"}
+            Dim format() = {"dd/MM/yyyy", "d/M/yyyy", "dd-MM-yyyy", "MM/dd/yyyy"}
             Dim dateValue As Date
 
             Date.TryParseExact(sender, format, DateTimeFormatInfo.InvariantInfo, DateTimeStyles.None, dateValue)

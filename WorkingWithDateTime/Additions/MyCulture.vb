@@ -18,6 +18,11 @@ Namespace My
         Public Function TimeSeparator() As String
             Return CultureInfo.CurrentCulture.DateTimeFormat.TimeSeparator
         End Function
+        Public Function CultureList() As CultureInfo()
+            Return (
+                From T In CultureInfo.GetCultures(CultureTypes.SpecificCultures)
+                Order By T.EnglishName).ToArray
+        End Function
     End Class
     <HideModuleName()>
     Friend Module Custom_Culture
