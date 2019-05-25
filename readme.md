@@ -11,6 +11,6 @@ Language extension methods are utilizing in many operations which in some cases 
 > The code presented should not be considered that they belong to one platform when presented in  [ASP.NET](https://dotnet.microsoft.com/apps/aspnet), [WPF](https://docs.microsoft.com/en-us/dotnet/framework/wpf/) or [Windows Forms](https://docs.microsoft.com/en-us/dotnet/framework/winforms/). For example, exploring code in a WPF project may reveal a useful regular expression pattern or a unit test may lead to a method useful in a Windows Form project
 
 See [Microsoft TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/52768.vb-net-type-conversions-part-1.aspx)
-# Work in progress
-Part 2 of this series deals with converting string data type of [Date](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.date?view=netframework-4.8), [DateTime](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8) and [Timespan](https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netframework-4.8).
+# Part 2
+[This part](https://social.technet.microsoft.com/wiki/contents/articles/52892.vb-net-type-conversions-part-2.aspx) deals with converting string data type of [Date](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.date?view=netframework-4.8), [DateTime](https://docs.microsoft.com/en-us/dotnet/api/system.datetime?view=netframework-4.8) and [Timespan](https://docs.microsoft.com/en-us/dotnet/api/system.timespan?view=netframework-4.8).
 

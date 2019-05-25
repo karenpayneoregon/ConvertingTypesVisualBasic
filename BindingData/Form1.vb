@@ -81,9 +81,9 @@ Public Class Form1
     End Sub
 
     Private Sub DataGridView1_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) _
-        Handles DataGridView1.CellFormatting
+    Handles DataGridView1.CellFormatting
 
-        If e.ColumnIndex = BirthDateColumnIndex Then
+        If e.ColumnIndex = birthDateColumnIndex Then
             Dim d As Date
             If Date.TryParse(e.Value.ToString, d) Then
                 e.Value = d.ToString("MM-dd-yyyy")

@@ -34,7 +34,7 @@ Public Class Form1
         End If
     End Sub
     Private Sub closeButton_Click(sender As Object, e As EventArgs) Handles closeButton.Click
-
+        Close()
     End Sub
 
 End Class

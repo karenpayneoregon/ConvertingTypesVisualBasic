@@ -132,10 +132,12 @@ Public Class Form1
         dateTimePickerPreviousDate = DateTimePicker1.Value
 
     End Sub
-
+    ''' <summary>
+    ''' Used for creating code sample for article
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub parsingDateButton_Click(sender As Object, e As EventArgs) Handles parsingDateButton.Click
 
     End Sub
-
-
 End Class
